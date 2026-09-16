@@ -1,0 +1,22 @@
+# Katya — React UX/UI proof
+
+> An independent one-page proof of visual craft in React, clearer product flow, and structured LLM context.
+
+## Status
+
+- Private prototype; not intended for search indexing.
+- Inspired by observations of UNKNW's public website.
+- Not affiliated with, endorsed by, or produced for UNKNW.
+
+## Content rules
+
+- Catalogue, project names, dates, and statuses are synthetic demonstration content.
+- No UNKNW logos, case-study images, client assets, or private data are included.
+- Form state stays in the current tab. There is no external API, AI call, analytics, database, authentication, or submission endpoint.
+
+## User paths
+
+1. Compare the visual rhythm and motion with the public reference; the covers themselves are original fictional graphics.
+2. Filter the synthetic catalogue by service, industry, and outcome.
+3. Complete the brief intake to produce readable text and structured JSON.
+4. Copy LLM context, or manually select its visible text if clipboard access is unavailable.
