@@ -53,7 +53,7 @@ export function NinjaCover({ compact = false }: { compact?: boolean }) {
         {compact && <div className="ninja-cover__tool-storm" aria-hidden="true">{flyingTools.map((tool) => <span key={tool.id} className={`tool-flight tool-flight--${tool.route}`} style={{ "--flight-duration": `${tool.duration}s`, "--flight-phase": `${tool.phase}s`, "--tool-size": `${tool.size}cqw`, "--tool-color": tool.color, "--tool-mark": `url('/brand/${tool.id}.svg')` } as CSSProperties}><span className="tool-flight__spin" title={tool.name} /></span>)}</div>}
         {!compact && <div className="ninja-cover__bottom"><p>same ninja,<br /><em>different weapon.</em></p><button type="button" onClick={() => setTake(take + 1)} aria-label="Replay the GONZIK to KABAGO animation">replay <span aria-hidden="true">↗</span></button></div>}
       </div>
-      <figcaption><span>Gonzik → Kabago</span><span>{compact ? <a href="/cover-original">original ↗</a> : "Identity in motion / 2013—now"}</span></figcaption>
+      <figcaption><span>Gonzik → Kabago</span>{!compact && <span>Identity in motion / 2013—now</span>}</figcaption>
     </figure>
   );
 }
