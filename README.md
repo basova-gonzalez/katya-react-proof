@@ -1,6 +1,6 @@
 # gonzik → kabago
 
-**Original maker since 2013, no Figma required.**
+**Original ninja since 2013, no Figma required.**
 
 A small case for UNKNW: design straight in React, plus one practical idea for keeping a site and its LLM context in sync.
 
