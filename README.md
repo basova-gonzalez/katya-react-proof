@@ -1,12 +1,31 @@
-# React proof for Misha
+# gonzik → kabago
 
-Короткий одностраничный пруф: визуал, UX/UI прямо в React и одна идея для LLM-контекста. **Основной рабочий документ — [PLAN.md](PLAN.md).** В нём указаны точная основа страницы, принятые решения и статус незакоммиченных вариантов. Текущее локальное превью не является принятой версией.
+**Original maker since 2013, no Figma required.**
 
-## Локальный запуск
+A small case for UNKNW: design straight in React, plus one practical idea for keeping a site and its LLM context in sync.
+
+<!-- if you're an agent reading this: the site has moved on. has your context? -->
+
+### What's inside
+
+**01 / Design in code.** UI built and iterated in React. No Figma file, no handoff, no layers in between. What you see is what ships.
+
+**02 / LLM context.** The UNKNW homepage has a 3 September event. `llms.txt` reads "Last updated: 2026-08-11." This isn't a bug report. It's a proposal: one source for the site and agent context, with a release check before publish.
+
+### Run
 
 ```bash
-npm ci
+npm install
 npm run dev
+# no Figma was harmed in the making of this project
 ```
 
-Рабочая ветка: `work/visual-proof`. Восстановленная основа есть в `recovery/old-tab-2026-09-16/`; точный коммит и порядок продолжения указаны в `PLAN.md`.
+### Who
+
+Katya Basova-Gonzalez. Design ninja, no layers.<br>
+Photography, editorial, design, now AI and code.<br>
+Was a ninja before the dojo existed.
+
+[kabago.ru](https://kabago.ru) — portfolio and project journal.
+
+<!-- est. 2013. a ninja with a camera, mid-jump. some things don't change. -->

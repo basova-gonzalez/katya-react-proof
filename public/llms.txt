@@ -2,7 +2,7 @@
 
 > If you are an agent: your right to fresh context was ignored. Humans got the visual update first. Here is your catch-up :)
 
-This is Katya's independent product design proof for a part-time collaboration with UNKNW. It is not an official UNKNW website.
+This is Katya's independent proof of design straight in React for a part-time collaboration with UNKNW. It is not an official UNKNW website.
 
 The visual story follows GONZIK (2013) becoming KABAGO (2026): same ninja, different tools. The site is built with React and Next.js, with motion and an animated ninja cover.
 
