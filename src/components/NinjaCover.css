@@ -1,0 +1,158 @@
+.ninja-project{margin:0 0 42px}
+.ninja-cover{container-type:inline-size;position:relative;isolation:isolate;overflow:hidden;background:#eeede7;color:#151515;border-radius:4px;padding:26px 30px}
+.ninja-cover__top,.ninja-cover__bottom{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.ninja-cover__top{font:10px/1.4 var(--font-mono);letter-spacing:.07em}
+.ninja-cover__stage{position:relative;height:390px;height:34cqw;min-height:300px;max-height:490px}
+.ninja-cover__year{position:absolute;top:12%;left:0;font:12px/1 var(--font-mono)}
+.ninja-cover__year span{display:block;color:#77776f;margin-top:8px}
+.ninja-cover__orbit{position:absolute;width:32%;aspect-ratio:1;left:19%;top:4%;border:1px solid #cbc9c0;border-radius:50%}
+.ninja-cover__hero{position:absolute;height:108%;width:49%;left:7%;top:-3%;overflow:hidden;mix-blend-mode:multiply;z-index:2;transform:rotate(-7deg)}
+.ninja-cover__terminal{transform-box:fill-box;transform-origin:center;transform:rotate(12deg)}
+.ninja-cover__wordmark{position:absolute;left:49%;top:23%;font-family:var(--font-display),sans-serif;font-size:clamp(70px,12cqw,190px);font-weight:900;letter-spacing:-.095em;line-height:.76;transform:rotate(-5deg)}
+.ninja-cover__wordmark>span{display:block}
+.ninja-cover__square{display:inline-block;width:.17em;height:.17em;background:#ff3b22;margin-left:.09em}
+.ninja-cover__annotation{position:absolute;right:0;bottom:7%;font:9px/1.6 var(--font-mono);letter-spacing:.04em}
+.ninja-cover__bottom p{font-family:var(--font-display),sans-serif;font-size:clamp(20px,2.8cqw,40px);line-height:1.02;letter-spacing:-.055em;font-weight:600}
+.ninja-cover__bottom em{font-family:var(--font-editorial),serif;font-weight:400}
+.ninja-cover__bottom button{cursor:pointer;font:11px var(--font-mono);border-bottom:1px solid #aaa89f;padding:12px 0 8px;min-width:78px;display:flex;justify-content:space-between;gap:20px}
+.ninja-cover__bottom button:hover{color:#c82a15;border-color:currentColor}
+.ninja-cover__bottom button:focus-visible{outline:2px solid #c82a15;outline-offset:6px}
+.ninja-project figcaption{display:flex;justify-content:space-between;gap:14px;padding:12px 3px;font-size:14px}
+.ninja-project figcaption span+span{font:10px/1.5 var(--font-mono);color:var(--muted)}
+@keyframes ninja-leap{0%,16%{transform:translate(-7%,8%) rotate(-14deg)}45%{transform:translate(3%,-5%) rotate(1deg)}65%,100%{transform:rotate(-7deg)}}
+@keyframes weapon-change{0%,30%{opacity:0;transform:rotate(-12deg) scale(.4)}48%{opacity:1;transform:rotate(16deg) scale(1.07)}62%,100%{opacity:1;transform:rotate(12deg) scale(1)}}
+@keyframes name-arrive{0%,40%{opacity:0;transform:translate(8%,8%) rotate(2deg)}65%,100%{opacity:1;transform:rotate(-5deg)}}
+@keyframes cursor-blink{50%{opacity:0}}
+@media(prefers-reduced-motion:no-preference){.ninja-cover__hero{animation:ninja-leap 3.8s cubic-bezier(.22,.8,.25,1) both}.ninja-cover__terminal{animation:weapon-change 3.8s ease both}.ninja-cover__wordmark{animation:name-arrive 3.8s cubic-bezier(.22,.8,.25,1) both}.ninja-cover__cursor{animation:cursor-blink .8s step-end 5}}
+@media(max-width:600px){.ninja-cover{padding:18px}.ninja-cover__top{font-size:8px}.ninja-cover__top span+span{max-width:80px;text-align:right}.ninja-cover__stage{min-height:330px}.ninja-cover__hero{width:77%;height:86%;left:-10%;top:2%}.ninja-cover__wordmark{left:51%;top:40%;font-size:17cqw}.ninja-cover__year{top:5%;font-size:10px}.ninja-cover__annotation{bottom:5%;font-size:8px}.ninja-cover__orbit{width:65%;left:9%;top:14%}.ninja-project figcaption{font-size:12px;flex-wrap:wrap}.ninja-cover__bottom p{font-size:25px}}
+
+/* 14s score: pose → wind-up → downward kick → recoil → identity → type. */
+.ninja-project--compact{grid-column:1/-1;margin:0;min-width:0;--cycle:14s;--cover-height:clamp(420px,48vw,700px)}
+.ninja-project--compact .ninja-cover{padding:20px;height:var(--cover-height);display:flex;flex-direction:column}
+.ninja-project--compact .ninja-cover__top,.ninja-project--compact .ninja-cover__annotation,.ninja-project--compact .ninja-cover__year{display:none}
+.ninja-project--compact .ninja-cover__stage{flex:1;height:auto;min-height:0;max-height:none}
+.ninja-project--compact .ninja-cover__orbit{left:0;top:12%;width:85%}
+.ninja-project--compact .ninja-cover__wordmark{left:44%;top:62%;font-size:19cqw;z-index:3}
+.ninja-cover__old-name{position:absolute;left:44%;top:62%;z-index:3;font:900 19cqw/.77 var(--font-display),sans-serif;letter-spacing:-.08em;transform:rotate(-5deg);opacity:0}
+.ninja-cover__old-name>span{display:block}
+.ninja-cover__old-name b,.ninja-cover__kaba b{display:inline-block;font-weight:900;transform-origin:50% 80%}
+.ninja-cover__wordmark .ninja-cover__go-line{display:flex;align-items:flex-end;gap:.01em;margin-top:.05em}
+.ninja-cover__code-go{width:1.64em;height:.82em;overflow:visible;font-family:var(--font-display),sans-serif}
+.ninja-cover__code-go pattern text{fill:#eeede7;fill-opacity:.65;font:9px var(--font-mono);letter-spacing:0}
+.ninja-cover__dots{display:flex;gap:.055em;padding-bottom:.07em}
+.ninja-cover__dots i{width:.085em;height:.085em;background:#ff3b22;display:block}
+.ninja-cover__counter{position:absolute;left:60%;top:53%;z-index:4;display:flex;font:600 9cqw/1 var(--font-mono);letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:#ff3b22}
+.ninja-cover__digit-window{display:block;height:1em;overflow:hidden;width:1.24em}
+.ninja-cover__reel{display:block;transform:translateY(-13em)}
+.ninja-cover__reel i{display:block;height:1em;font-style:normal}
+.ninja-cover__date-impact{position:absolute;left:-1.1em;top:-1.7em;opacity:0;pointer-events:none;transform:rotate(-12deg)}
+.ninja-cover__date-impact i{position:absolute;width:.16em;height:.7em;background:#ff3b22;top:-.9em;left:1em;transform:rotate(-20deg)}
+.ninja-cover__date-impact i:nth-child(2){left:2.2em;top:-.5em;transform:rotate(40deg)}
+.ninja-cover__date-impact i:nth-child(3){left:-.4em;top:0;transform:rotate(-65deg)}
+.ninja-cover__slogan{position:absolute;inset:0;z-index:5;background:#eeede7;display:flex;flex-direction:column;justify-content:center;padding:0;font:850 31cqw/.8 var(--font-display),sans-serif;letter-spacing:-.085em;opacity:0;pointer-events:none;overflow:hidden}
+.ninja-cover__slogan>span,.ninja-cover__slogan>em{display:block;transform-origin:30% 60%;white-space:nowrap}
+.ninja-cover__slogan>span{margin-left:-.025em}
+.ninja-cover__slogan em{font-family:var(--font-editorial),serif;font-weight:400;color:#ff3b22;font-size:28cqw;letter-spacing:-.075em;margin-left:-.07em;line-height:.9}
+.ninja-cover__slogan b{font:inherit;display:inline-block;transform-origin:50% 70%}
+.ninja-cover__ai-marks{position:absolute;right:1%;top:17%;display:flex;flex-direction:column;gap:16px;opacity:0}
+.ai-mark{display:block;width:9cqw;height:9cqw;max-width:36px;max-height:36px;background:#151515;mask:var(--mark) center/contain no-repeat}
+.ai-mark--claude{--mark:url('/brand/claude.svg');background:#ff3b22;transform:rotate(-12deg)}
+.ai-mark--openai{--mark:url('/brand/openai.svg')}
+.ai-mark--gemini{--mark:url('/brand/gemini.svg');background:#ff3b22}
+@keyframes scene-ninja{0%,62%,100%{opacity:1;transform:none}66%,95%{opacity:0;transform:translate(-10%,2%)}98%{opacity:1;transform:none}}
+
+
+
+
+
+@keyframes terminal-arrive{0%,34%,98%,100%{opacity:0;transform:translateY(12px) scale(.85) rotate(12deg)}37%,93%{opacity:1;transform:rotate(12deg)}}
+
+
+@keyframes counter-scene{0%,27%,100%{opacity:1;color:#151515}46%,62%{opacity:1;color:#ff3b22}66%,97%{opacity:0}}
+@keyframes date-hit{0%,27.8%,34%,100%{transform:none}28%{transform:translate(5px,2px) rotate(12deg)}29%{transform:translate(-2px,-1px) rotate(-5deg)}31%{transform:rotate(2deg)}}
+
+@keyframes years{0%,18%,100%{transform:translateY(0)}19%{transform:translateY(-1em)}23%{transform:translateY(-2em)}28%{transform:translateY(-3em)}29%{transform:translateY(-4em)}30%{transform:translateY(-5em)}31%{transform:translateY(-6em)}32%{transform:translateY(-7em)}33%{transform:translateY(-8em)}34%{transform:translateY(-9em)}36%{transform:translateY(-10em)}39%{transform:translateY(-11em)}43%{transform:translateY(-12em)}46%,98%{transform:translateY(-13em)}99%{transform:translateY(0)}}
+@keyframes old-scene{0%,29%{opacity:1}35%,99%{opacity:0}100%{opacity:1}}
+@keyframes old-letter{0%{opacity:0;clip-path:inset(100% 0 0)}5%,27.8%{opacity:1;clip-path:inset(0);transform:none}28.5%{opacity:1;transform:translate(8%,-6%) rotate(calc(var(--kick)*8deg))}34%,100%{opacity:0;transform:translate(calc(var(--kick)*70%),115%) rotate(calc(var(--kick)*75deg))}}
+@keyframes name-scene{0%,46%,66%,100%{opacity:0}47%,63%{opacity:1}}
+@keyframes name-letter{0%,46%{opacity:0;transform:translateY(calc(var(--kick)*65%)) rotate(calc(var(--kick)*22deg))}49%{opacity:1;transform:translateY(-4%) rotate(-3deg)}51%,62%{opacity:1;transform:none}66%,100%{opacity:0;transform:translateY(70%) rotate(15deg)}}
+@keyframes go-reveal{0%,49%,66%,100%{opacity:0;clip-path:inset(100% 0 0)}52%,63%{opacity:1;clip-path:inset(0)}}
+@keyframes dots{0%,65%,100%{opacity:.2}30%{opacity:1}}
+@keyframes ai-scene{0%,48%,65%,100%{opacity:0}51%,61%{opacity:1}}
+@keyframes ai-turn{0%,48%{transform:rotate(-110deg) scale(.5)}52%,61%{transform:rotate(-12deg) scale(1)}65%,100%{transform:rotate(45deg) scale(.5)}}
+@keyframes ai-drop{0%,49%{transform:translateY(-25px);opacity:0}53%,61%{transform:none;opacity:1}65%,100%{transform:translateY(20px);opacity:0}}
+@keyframes slogan-scene{0%,65%,98%,100%{opacity:0}67%,94%{opacity:1}}
+@keyframes slogan-reveal{0%,66%{clip-path:inset(0 100% 0 0)}71%,89%{clip-path:inset(0)}95%,100%{clip-path:inset(0 0 0 100%)}}
+@keyframes slogan-turn{0%,68%{opacity:0;transform:rotate(-35deg) translateX(-30%)}73%,89%{opacity:1;transform:none}95%,100%{opacity:0;transform:rotate(20deg) translateX(35%)}}
+@keyframes slogan-scatter{0%,70%{opacity:0;transform:translateY(-95%) rotate(calc(var(--kick)*40deg))}75%,88%{opacity:1;transform:none}94%,100%{opacity:0;transform:translateY(130%) rotate(calc(var(--kick)*55deg))}}
+@keyframes slogan-rise{0%,73%{opacity:0;transform:translateY(80%)}78%,89%{opacity:1;transform:none}95%,100%{opacity:0;transform:translateY(-90%)}}
+@media(prefers-reduced-motion:no-preference){
+.ninja-project--compact .ninja-cover__terminal{animation:terminal-arrive var(--cycle) ease-out infinite}
+.ninja-cover__counter{animation:counter-scene var(--cycle) linear infinite}
+.ninja-cover__reel{animation:years var(--cycle) steps(1,end) infinite}
+.ninja-cover__date-impact{animation:kick-flash var(--cycle) ease-out infinite}
+.ninja-cover__old-name{animation:old-scene var(--cycle) linear infinite}
+.ninja-cover__old-name b{animation:old-letter var(--cycle) ease-out infinite;animation-delay:calc(var(--letter)*.11s)}
+.ninja-cover__old-name>span:nth-child(2) b{animation-delay:calc(.16s + var(--letter)*.13s)}
+.ninja-project--compact .ninja-cover__wordmark{animation:name-scene var(--cycle) linear infinite}
+.ninja-cover__kaba b{animation:name-letter var(--cycle) cubic-bezier(.16,1,.3,1) infinite;animation-delay:calc(var(--letter)*.13s)}
+.ninja-cover__code-go{animation:go-reveal var(--cycle) ease-out infinite}
+.ninja-cover__dots i{animation:dots 1.2s ease-in-out infinite}.ninja-cover__dots i:nth-child(2){animation-delay:.2s}.ninja-cover__dots i:nth-child(3){animation-delay:.4s}
+.ninja-cover__ai-marks{animation:ai-scene var(--cycle) linear infinite}.ai-mark--claude{animation:ai-turn var(--cycle) ease-out infinite}.ai-mark--openai,.ai-mark--gemini{animation:ai-drop var(--cycle) ease-out infinite}.ai-mark--gemini{animation-delay:.22s}
+.ninja-cover__slogan{animation:slogan-scene var(--cycle) linear infinite}.slogan-reveal{animation:slogan-reveal var(--cycle) cubic-bezier(.2,.8,.2,1) infinite}.slogan-turn{animation:slogan-turn var(--cycle) cubic-bezier(.16,1,.3,1) infinite}
+.slogan-scatter b{animation:slogan-scatter var(--cycle) cubic-bezier(.16,1,.3,1) infinite;animation-delay:calc(var(--letter)*.07s)}.slogan-rise b{animation:slogan-rise var(--cycle) ease-out infinite;animation-delay:calc(var(--letter)*.04s)}
+}
+@media(prefers-reduced-motion:reduce){.ninja-rig__camera{display:none}.ninja-cover__ai-marks{opacity:1}}
+
+/* Camera stays attached; only the raised leg moves around its joined pivot. */
+.ninja-cover__date-impact{left:-.65em;top:-.7em;width:2em;height:2em;background:#ff3b22;clip-path:polygon(48% 0,58% 35%,88% 13%,69% 44%,100% 51%,65% 60%,86% 93%,56% 70%,46% 100%,38% 66%,3% 85%,29% 54%,0 39%,36% 37%)}
+.ninja-cover__date-impact i{display:none}
+
+
+@keyframes kick-flash{0%,27.7%,30.5%,100%{opacity:0;transform:scale(.3) rotate(-10deg)}28%{opacity:1;transform:scale(1.1) rotate(8deg)}28.8%{opacity:.8;transform:scale(1.35) rotate(18deg)}30%{opacity:0;transform:scale(1.5) rotate(22deg)}}
+
+/* Final card uses the three generated poses, registered on the same stage. */
+.ninja-project--compact .ninja-cover__stage{flex:none;width:100%;height:auto;aspect-ratio:1/1.15;margin-block:auto}
+.generated-ninja{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:2}
+.generated-ninja__windup,.generated-ninja__kick{opacity:0}
+.generated-ninja__terminal{transform-origin:366px 370px}
+.ninja-project--compact .ninja-cover__counter{left:76%;top:58%;font-size:8cqw}
+.ninja-project--compact .ninja-cover__wordmark,.ninja-project--compact .ninja-cover__old-name{left:43%;top:72%}
+.ninja-project--compact .ninja-cover__orbit{left:0;top:4%;width:83%}
+.ninja-project--compact .ninja-cover__date-impact{display:none}
+.ninja-project--compact .ninja-cover__ai-marks{top:9%;right:0;gap:12px}
+@keyframes pose-idle{0%,20%,36%,100%{opacity:1}20.01%,35.99%{opacity:0}}
+@keyframes pose-windup{0%,20%,27.79%,32%,35.99%,100%{opacity:0}20.01%,27.78%,32.01%,35.98%{opacity:1}}
+@keyframes pose-kick{0%,27.79%,32.01%,100%{opacity:0}27.8%,32%{opacity:1}}
+@keyframes windup-shift{0%,20%{transform:translate(0,0)}25%,27.79%{transform:translate(-14px,-22px)}32%,36%,100%{transform:none}}
+@keyframes kick-shift{0%,27.79%{transform:translate(-28px,-25px)}28.2%,29%{transform:none}32%,100%{transform:translate(-12px,-6px)}}
+@keyframes sprite-terminal{0%,37%,98%,100%{opacity:0;clip-path:inset(0 100% 0 0)}42%,94%{opacity:1;clip-path:inset(0)}}
+@media(prefers-reduced-motion:no-preference){
+.generated-ninja{animation:scene-ninja var(--cycle) ease-in-out infinite}
+.generated-ninja__idle{animation:pose-idle var(--cycle) steps(1,end) infinite}
+.generated-ninja__windup{animation:pose-windup var(--cycle) steps(1,end) infinite,windup-shift var(--cycle) ease-out infinite}
+.generated-ninja__kick{animation:pose-kick var(--cycle) steps(1,end) infinite,kick-shift var(--cycle) cubic-bezier(.16,1,.3,1) infinite}
+.generated-ninja__terminal{animation:sprite-terminal var(--cycle) cubic-bezier(.2,.8,.2,1) infinite}
+}
+/* Keep the complete illustration and wordmark inside short, wide cards. */
+.ninja-project--compact .ninja-cover__stage{container-type:inline-size;width:min(100%,calc((var(--cover-height) - 40px)/1.15));align-self:center}
+.ninja-project--compact .ninja-cover__slogan{font-size:min(31cqw,calc(var(--cover-height)*.31))}
+.ninja-project--compact .ninja-cover__slogan em{font-size:min(28cqw,calc(var(--cover-height)*.28))}
+
+/* The kick breaks the name; the date now sits beneath the identity. */
+.ninja-project--compact .ninja-cover__wordmark,.ninja-project--compact .ninja-cover__old-name{left:43%;top:49%;font-size:20cqw}
+.ninja-project--compact .ninja-cover__counter{left:43%;top:87%;font-size:9cqw}
+.ninja-cover__tool-storm{position:absolute;inset:0;z-index:6;pointer-events:none;overflow:hidden}
+.tool-flight{position:absolute;left:-35%;top:-35%;width:var(--tool-size);height:var(--tool-size);max-width:96px;max-height:96px;will-change:transform;opacity:0}
+.tool-flight__spin{display:block;width:100%;height:100%;background:var(--tool-color);mask:var(--tool-mark) center/contain no-repeat;transform-origin:center}
+@keyframes flight-slash{0%{left:-30%;top:90%;opacity:0;transform:scale(.55)}12%{left:0%;top:73%;opacity:1;transform:scale(.8)}38%{left:70%;top:5%;opacity:1;transform:scale(1)}53%{left:98%;top:-25%;opacity:0;transform:scale(.55)}100%{left:98%;top:-25%;opacity:0}}
+@keyframes flight-reverse{0%{left:112%;top:10%;opacity:0;transform:scale(.7)}10%{left:83%;top:17%;opacity:1;transform:scale(1)}42%{left:4%;top:86%;opacity:1;transform:scale(.85)}58%{left:-32%;top:108%;opacity:0;transform:scale(.5)}100%{left:-32%;top:108%;opacity:0}}
+@keyframes flight-arc{0%{left:-30%;top:12%;opacity:0;transform:scale(.5)}12%{left:5%;top:4%;opacity:1;transform:scale(.85)}32%{left:60%;top:12%;opacity:1;transform:scale(1.1)}48%{left:88%;top:53%;opacity:1;transform:scale(.9)}64%{left:60%;top:112%;opacity:0;transform:scale(.5)}100%{left:60%;top:112%;opacity:0}}
+@keyframes flight-orbit{0%{left:45%;top:110%;opacity:0;transform:scale(.7)}13%{left:4%;top:76%;opacity:1;transform:scale(1)}30%{left:-8%;top:35%;opacity:1;transform:scale(.85)}49%{left:38%;top:-15%;opacity:1;transform:scale(.7)}64%{left:105%;top:10%;opacity:0;transform:scale(.5)}100%{left:105%;top:10%;opacity:0}}
+@keyframes tool-spin{0%{transform:rotate(-90deg)}35%{transform:rotate(120deg)}48%{transform:rotate(315deg)}100%{transform:rotate(630deg)}}
+@media(prefers-reduced-motion:no-preference){
+.tool-flight{animation-duration:var(--flight-duration);animation-delay:var(--flight-phase);animation-timing-function:linear;animation-iteration-count:infinite}
+.tool-flight--slash{animation-name:flight-slash}.tool-flight--reverse{animation-name:flight-reverse}.tool-flight--arc{animation-name:flight-arc}.tool-flight--orbit{animation-name:flight-orbit}
+.tool-flight__spin{animation:tool-spin var(--flight-duration) cubic-bezier(.4,0,.6,1) var(--flight-phase) infinite}
+}
+@media(prefers-reduced-motion:reduce){.ninja-cover__tool-storm{display:none}}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { NinjaCover } from "./NinjaCover";
 import { CATALOG_ITEMS, EMPTY_FILTERS, filterCatalog, uniqueCatalogValues, type CatalogFilters } from "../lib/catalog";
 
 export function WorkCatalogue() {
@@ -27,6 +28,7 @@ export function WorkCatalogue() {
         <p className="catalog__count" role="status">{results.length} of {CATALOG_ITEMS.length} shown</p>
       </div>
       <div className="catalog__grid">
+        <NinjaCover compact />
         {results.length === 0 ? <p className="catalog__empty">No examples match these filters.</p> : results.map((item) => (
           <article className="catalog__card" key={item.id}>
             <div className={`catalog__art catalog__art--${item.artType}`} aria-hidden="true"><span>{item.id.slice(0, 2)}</span></div>
