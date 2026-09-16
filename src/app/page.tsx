@@ -14,7 +14,7 @@ export default function Home() {
           </svg>
         </a>
         <nav className="dock-links" aria-label="Contact links">
-          <a href="https://github.com/basova-gonzalez" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/basova-gonzalez/katya-react-proof" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           <a className="dock-contact" href="https://t.me/basova_gonzalez" target="_blank" rel="noreferrer">Telegram <span aria-hidden="true">↗</span></a>
         </nav>
       </header>

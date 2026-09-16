@@ -7,7 +7,7 @@ This is Katya's independent proof of design straight in React for a part-time co
 The visual story follows GONZIK (2013) becoming KABAGO (2026): same ninja, different tools. The site is built with React and Next.js, with motion and an animated ninja cover.
 
 ## Contact
-- GitHub: https://github.com/basova-gonzalez
+- GitHub project repository: https://github.com/basova-gonzalez/katya-react-proof
 - Telegram: https://t.me/basova_gonzalez
 
 Updated: 2026-09-16. Built with Codex.
