@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { StoryGallery } from "@/components/StoryGallery";
 import { Hero } from "@/components/Hero";
 
@@ -8,8 +7,11 @@ export default function Home() {
       <a className="skip-link" href="#main">Skip to content</a>
       <div className="ambient-lines" aria-hidden="true"><i /><i /><i /><i /><i /></div>
       <header className="site-header">
-        <a href="#main" className="project-name" aria-label="GONZIK home">
-          <Image src="/gonzik.jpg" alt="GONZIK" width={2362} height={2362} priority />
+        <a href="#main" className="project-name" aria-label="Back to top">
+          <svg viewBox="90 465 515 675" aria-hidden="true" focusable="false">
+            <defs><clipPath id="menu-ninja"><path d="M90 465H605V790H540V1140H90Z" /></clipPath></defs>
+            <image href="/gonzik.jpg" width="1600" height="1600" clipPath="url(#menu-ninja)" />
+          </svg>
         </a>
         <nav className="dock-links" aria-label="Contact links">
           <a href="https://github.com/basova-gonzalez" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
@@ -22,7 +24,7 @@ export default function Home() {
           <StoryGallery />
         </section>
         <footer className="closing" id="contact">
-          <p className="eyebrow">Katya · product designer</p>
+          <p className="eyebrow">post-figma designer</p>
           <h2 className="closing-title">let’s make<br />the next move<span className="square-stop" aria-hidden="true" /></h2>
           <div className="closing-bottom">
             <p className="closing-credit">© Ekaterina Básova González · 2026 · post-figma designer.<br />An independent hello to UNKNW. <span className="closing-credit__accent">Your site moved on. Your llms.txt stayed in August.</span></p>

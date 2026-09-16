@@ -165,16 +165,16 @@ main {
   box-shadow:0 6px 35px #0005
 }
 .project-name {
-  width:105px;
-  height:43px;
-  display:block;
-  overflow:hidden
+  width:52px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  flex-shrink:0
 }
-.project-name img {
-  width:116px;
-  height:116px;
-  max-width:none;
-  transform:translate(-3px,-35px)
+.project-name svg {
+  display:block;
+  width:100%;
+  height:100%
 }
 .dock-links {
   display:flex;
@@ -647,7 +647,7 @@ main {
   }
   .closing {
     padding-top:58px;
-    padding-bottom:125px
+    padding-bottom:calc(125px + env(safe-area-inset-bottom,0px))
   }
   .closing-title {
     font-size:14vw
@@ -662,27 +662,21 @@ main {
     font-size:14px
   }
   .site-header {
-    bottom:max(14px,env(safe-area-inset-bottom));
-    gap:12px;
+    bottom:calc(12px + env(safe-area-inset-bottom,0px));
+    gap:8px;
     padding:6px;
     max-width:calc(100% - 24px);
-    width:326px;
+    width:280px;
     justify-content:space-between
   }
   .project-name {
-    width:87px;
-    height:40px;
-    flex-shrink:0
-  }
-  .project-name img {
-    width:103px;
-    height:103px;
-    transform:translate(-4px,-31px)
+    width:48px;
+    height:50px
   }
   .dock-links a {
     font-size:11px;
-    padding:12px 10px;
-    gap:9px;
+    padding:12px 8px;
+    gap:6px;
     min-height:44px
   }
   .independent-note {
@@ -757,19 +751,7 @@ main {
   }
 }
 @media(max-width:600px) {
-  .site-header {
-    position:relative;
-    top:auto;
-    bottom:auto;
-    left:auto;
-    transform:none;
-    margin:16px auto 0;
-    box-shadow:none
-  }
   .hero {
     padding-top:30px
-  }
-  .closing {
-    padding-bottom:40px
   }
 }
