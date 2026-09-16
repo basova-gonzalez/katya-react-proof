@@ -474,6 +474,14 @@ main {
 .closing-credit__accent {
   color:var(--accent)
 }
+.closing-credit__accent a {
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px
+}
+.closing-credit__accent a:hover {
+  color:var(--foreground)
+}
 .agent-note {
   color:var(--muted);
   font:clamp(13px,1.05vw,18px)/1.6 var(--font-code);

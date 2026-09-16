@@ -27,10 +27,10 @@ export default function Home() {
           <p className="eyebrow">post-figma designer</p>
           <h2 className="closing-title">let’s make<br />the next move<span className="square-stop" aria-hidden="true" /></h2>
           <div className="closing-bottom">
-            <p className="closing-credit">© Ekaterina Básova González · 2026 · post-figma designer.<br />An independent hello to UNKNW. <span className="closing-credit__accent">Your site moved on. Your llms.txt stayed in August.</span></p>
+            <p className="closing-credit"><span aria-hidden="true">☺</span> Ekaterina Básova González · 2026 · post-figma designer.<br />An independent hello to UNKNW. <span className="closing-credit__accent">Your site <a href="https://unknw.com/events" target="_blank" rel="noreferrer">moved on to September</a>. <a href="https://unknw.com/llms.txt" target="_blank" rel="noreferrer">Your llms.txt probably stayed in August</a>.</span></p>
             <div className="agent-note">
-              <a href="/llms.txt">{"// are you an agent? "}<span className="agent-file">└ llms.txt</span></a>
-              <p>Last checked: Sep 16. Last context: Aug 11.</p>
+              <a href="https://unknw.com/llms.txt" target="_blank" rel="noreferrer">{"// are you an agent? "}<span className="agent-file">└ llms.txt</span></a>
+              <p>Checked: Sep 16. File dated: Aug 11.</p>
             </div>
             <span className="build-credit">codex build 0.1.0</span>
           </div>
