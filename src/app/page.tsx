@@ -1,57 +1,39 @@
 import Image from "next/image";
-import { NinjaCover } from "@/components/NinjaCover";
+import { StoryGallery } from "@/components/StoryGallery";
+import { Hero } from "@/components/Hero";
 
 export default function Home() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
-      <header className="site-header" id="top">
-        <a href="#main" className="project-name project-name--gonzik" aria-label="GONZIK home">
+      <div className="ambient-lines" aria-hidden="true"><i /><i /><i /><i /><i /></div>
+      <header className="site-header">
+        <a href="#main" className="project-name" aria-label="GONZIK home">
           <Image src="/gonzik.jpg" alt="GONZIK" width={2362} height={2362} priority />
         </a>
         <nav className="dock-links" aria-label="Contact links">
           <a href="https://github.com/basova-gonzalez" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          <a href="https://t.me/basova_gonzalez" target="_blank" rel="noreferrer">Telegram <span aria-hidden="true">↗</span></a>
+          <a className="dock-contact" href="https://t.me/basova_gonzalez" target="_blank" rel="noreferrer">Telegram <span aria-hidden="true">↗</span></a>
         </nav>
       </header>
       <main id="main">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero__composition">
-            <h1 id="hero-title"><span className="hero__line">Original ninja since 2013,</span>{" "}<span className="hero__line">no Figma required</span></h1>
-          </div>
-          <div className="hero__intro">
-            <p>hey Misha. product design done directly in React. one practical idea for keeping a site and its LLM context in sync. no Figma was harmed.</p>
-          </div>
+        <Hero />
+        <section className="work-section" id="work" aria-label="GONZIK to KABAGO — a visual story">
+          <StoryGallery />
         </section>
-        <section className="content-section work-section" id="work" aria-labelledby="work-title">
-          <div className="catalog">
-            <h2 className="catalog__eyebrow" id="work-title">visual proof</h2>
-            <div className="catalog__grid catalog__grid--proof">
-              <NinjaCover compact />
-              <figure className="catalog__card catalog__card--sync">
-                <div className="catalog__art catalog__art--sync" role="img" aria-label="Research sequence from noticing possible drift to mapping the publishing flow and proposing a suitable check">
-                  <div className="sync-cover__head"><span>site</span><span>agent context</span></div>
-                  <div className="sync-cover__dates"><span>03 Sep<small>homepage event</small></span><span>11 Aug<small>llms.txt update</small></span></div>
-                  <div className="sync-cover__flow"><span>possible<br />drift</span><i aria-hidden="true">↘</i><strong>map publishing flow<br />&amp; shared facts</strong><i aria-hidden="true">↗</i><span>suggest<br />a check</span><small>conditional — depends on the setup</small></div>
-                </div>
-                <figcaption className="catalog__card-body"><h3 className="catalog__card-title">site ↔ LLM</h3><span className="catalog__category">observation / research</span></figcaption>
-              </figure>
+        <footer className="closing" id="contact">
+          <p className="eyebrow">Katya · product designer</p>
+          <h2 className="closing-title">let’s make<br />the next move<span className="square-stop" aria-hidden="true" /></h2>
+          <div className="closing-bottom">
+            <p className="closing-credit">© Ekaterina Básova González · 2026 · post-figma designer.<br />An independent hello to UNKNW. <span className="closing-credit__accent">Your site moved on. Your llms.txt stayed in August.</span></p>
+            <div className="agent-note">
+              <a href="/llms.txt">{"// are you an agent? "}<span className="agent-file">└ llms.txt</span></a>
+              <p>Last checked: Sep 16. Last context: Aug 11.</p>
             </div>
+            <span className="build-credit">codex build 0.1.0</span>
           </div>
-        </section>
-        <section className="content-section brief-section" id="brief" aria-labelledby="brief-title">
-          <div className="section-heading">
-            <span className="mono-label">observation / proposal</span>
-            <h2 id="brief-title">a pinch of<br />product design</h2>
-            <div className="section-copy"><p>While reviewing the site, I noticed a 3 September event on the homepage and an 11 August “last updated” date in llms.txt. That may be intentional. It raises a useful question: when the site changes, how do you decide what should also change in the context provided to LLMs?</p><p>I’d start by mapping how content is published and which facts belong in both places. Then I’d add a small check before release. If the setup allows it, shared structured content could keep those facts in sync.</p></div>
-          </div>
-        </section>
+        </footer>
       </main>
-      <footer className="site-footer">
-        <span>Katya / independent React UX proof</span>
-        <a href="https://github.com/basova-gonzalez" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a href="https://t.me/basova_gonzalez" target="_blank" rel="noreferrer">Telegram ↗</a>
-      </footer>
     </>
   );
 }

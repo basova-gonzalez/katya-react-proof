@@ -1,0 +1,71 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+}
+.hero-word {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1.98em;
+  width: 1.98em;
+  overflow: visible;
+  z-index: 1;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.hero-word > span {
+  position: relative;
+  font: inherit;
+  letter-spacing: inherit;
+  transform-origin: 0 70%;
+}
+.hero-word > span::after {
+  content: attr(data-echo);
+  position: absolute;
+  inset: 0;
+  color: var(--accent);
+  clip-path: inset(38% 0 37%);
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-scan {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-scan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-bottom: 1px solid #ff543b99;
+  background: linear-gradient(transparent 96%, #f13d2908 99%, #ff543b18);
+  transform: translateY(-105%);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-word[data-scrambling=true] > span::after { animation: word-slice .23s steps(1) infinite; }
+  .hero-scan::after { animation: hero-sweep 8s cubic-bezier(.4,0,.3,1) infinite; }
+  .hero[data-running=false] *, .hero[data-running=false] *::after { animation-play-state: paused; }
+  .ambient-lines i:nth-child(1) { animation-duration: 13s; }
+  .ambient-lines i:nth-child(3) { animation: line-breathe 11s ease-in-out -3s infinite; }
+  .ambient-lines i:nth-child(5) { animation: line-breathe 17s ease-in-out -9s infinite; }
+}
+/* Spillover is intentional: the reserved slot stays the width of “ninja”. */
+@keyframes word-slice {
+  0%, 100% { opacity: 0; transform: none; }
+  25% { opacity: .6; transform: translateX(.035em); clip-path: inset(38% 0 37%); }
+  60% { opacity: .35; transform: translateX(-.02em); clip-path: inset(62% 0 18%); }
+}
+@keyframes hero-sweep {
+  0%, 10% { opacity: 0; transform: translateY(-105%); }
+  13% { opacity: .6; }
+  52% { opacity: .7; }
+  68%, 100% { opacity: 0; transform: translateY(5%); }
+}
+@keyframes line-breathe {
+  0%, 100% { opacity: .18; translate: -2% 0; }
+  45% { opacity: .7; translate: 2% -12px; }
+  65% { opacity: .35; translate: 0 6px; }
+}

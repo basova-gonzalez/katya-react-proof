@@ -28,6 +28,7 @@ export function NinjaCover({ compact = false }: { compact?: boolean }) {
         <div className="ninja-cover__stage" aria-hidden="true">
           <span className="ninja-cover__year">2013<span>→ NOW</span></span>
           <div className="ninja-cover__orbit" />
+          {compact && <svg className="ninja-cover__impact-rays" viewBox="0 0 160 160"><path d="m80 6 0 38m52-27-23 31m43 27-38 4m24 48-29-25m-29 49 0-38m-54 15 28-27M8 70l37 6m-27-51 29 25" fill="none" stroke="currentColor" strokeWidth="5" /></svg>}
           {compact && <span className="ninja-cover__counter"><span>20</span><span className="ninja-cover__digit-window ninja-cover__digit-window--years"><span className="ninja-cover__reel ninja-cover__reel--years">{Array.from({ length: 14 }, (_, i) => <i key={i}>{13 + i}</i>)}</span></span><span className="ninja-cover__date-impact"><i/><i/><i/><i/></span></span>}
           {compact && <><span className="ninja-cover__old-name"><span>{letters("GON")}</span><span>{letters("ZIK")}</span></span></>}
           {compact ? <GeneratedNinja /> : <svg className="ninja-cover__hero" viewBox="90 465 515 675">
