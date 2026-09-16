@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Katya — page concept</title>
+    <meta
+      name="description"
+      content="One-page content and layout concept for Katya's React proof."
+    />
+    <style>
+      @font-face {
+        font-family: "Wire Display";
+        src: url("../src/app/fonts/Geist-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Wire Mono";
+        src: url("../src/app/fonts/GeistMono-Variable.ttf") format("truetype");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Wire Editorial";
+        src: url("../src/app/fonts/DMSerifDisplay-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      :root {
+        --paper: #20201e;
+        --ink: #eeede6;
+        --muted: #a4a49d;
+        --line: #4a4a44;
+        --panel: #292926;
+        --accent: #ff402b;
+        --gutter: clamp(24px, 4.5vw, 80px);
+        --display: "Wire Display", Helvetica, Arial, sans-serif;
+        --mono: "Wire Mono", "SFMono-Regular", Consolas, monospace;
+        --editorial: "Wire Editorial", Georgia, serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--display);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 5px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      figure {
+        margin: 0;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      .mono,
+      .label,
+      .status,
+      .annotation,
+      .cover__head,
+      .cover__foot,
+      .floating-dock,
+      .footer-word__note {
+        font-family: var(--mono);
+        letter-spacing: 0.035em;
+        line-height: 1.45;
+      }
+
+      .label {
+        color: var(--muted);
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      .status::before {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        content: "";
+      }
+
+      .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        min-height: 94px;
+        margin: 0 var(--gutter);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-signature {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 12px;
+        letter-spacing: -0.05em;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .site-signature small {
+        color: var(--muted);
+        font: 10px var(--mono);
+        letter-spacing: 0.02em;
+      }
+
+      .hero,
+      .section,
+      .site-footer {
+        padding-right: var(--gutter);
+        padding-left: var(--gutter);
+      }
+
+      .hero {
+        padding-top: 32px;
+        padding-bottom: 88px;
+      }
+
+      .hero__meta,
+      .section__meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--muted);
+        font: 10px var(--mono);
+        letter-spacing: 0.035em;
+        text-transform: uppercase;
+      }
+
+      .hero__composition {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.5fr);
+        gap: clamp(40px, 8vw, 160px);
+        align-items: end;
+        min-height: 520px;
+        padding-top: 78px;
+      }
+
+      .hero h1 {
+        max-width: 940px;
+        letter-spacing: -0.072em;
+        font-size: clamp(70px, 9.2vw, 156px);
+        font-weight: 450;
+        line-height: 0.91;
+      }
+
+      .hero__copy {
+        align-self: end;
+        max-width: 365px;
+        padding-bottom: 8px;
+      }
+
+      .hero__copy p {
+        letter-spacing: -0.035em;
+        font-size: clamp(20px, 2.15vw, 33px);
+        line-height: 1.14;
+      }
+
+      .section {
+        padding-top: 78px;
+        padding-bottom: 84px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section__intro {
+        display: grid;
+        grid-template-columns: minmax(140px, 0.38fr) minmax(0, 1fr);
+        gap: 22px;
+        margin-bottom: 44px;
+      }
+
+      .section__intro > .label {
+        padding-top: 8px;
+      }
+
+      .section__intro h2 {
+        letter-spacing: -0.065em;
+        font-size: clamp(44px, 5.2vw, 78px);
+        font-weight: 450;
+        line-height: 0.95;
+      }
+
+      .covers {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .cover__frame {
+        position: relative;
+        height: clamp(420px, 37vw, 585px);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #e8e6dd;
+        color: #181817;
+      }
+
+      .cover__head,
+      .cover__foot {
+        position: absolute;
+        z-index: 2;
+        right: 22px;
+        left: 22px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        color: #5b5b54;
+        font-size: 9px;
+        text-transform: uppercase;
+      }
+
+      .cover__head {
+        top: 20px;
+      }
+
+      .cover__foot {
+        bottom: 20px;
+        color: #181817;
+      }
+
+      .cover__foot span:last-child {
+        color: var(--accent);
+      }
+
+      .cover--gonzik::before {
+        position: absolute;
+        top: 47%;
+        left: -6%;
+        width: 55%;
+        height: 1px;
+        background: #b8b6ac;
+        content: "";
+        transform: rotate(-18deg);
+      }
+
+      .cover--gonzik .cover__axis {
+        position: absolute;
+        top: 24%;
+        left: 22px;
+        color: #5b5b54;
+        font: 10px var(--mono);
+      }
+
+      .cover__axis span {
+        color: var(--accent);
+        font-size: 17px;
+      }
+
+      .cover__media {
+        position: absolute;
+        top: 13%;
+        left: 9%;
+        width: 49%;
+        height: 51%;
+        overflow: hidden;
+        border: 1px solid #b8b6ac;
+        background: #f2f0e9;
+      }
+
+      .cover__media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 70%;
+        filter: grayscale(1);
+      }
+
+      .cover__handoff {
+        position: absolute;
+        right: 7%;
+        bottom: 29%;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #181817;
+        font-size: clamp(26px, 3.5vw, 56px);
+        letter-spacing: -0.09em;
+        line-height: 0.85;
+      }
+
+      .cover__handoff span {
+        color: var(--accent);
+        font: 28px var(--mono);
+        letter-spacing: 0;
+      }
+
+      .cover__annotation {
+        position: absolute;
+        right: 7%;
+        bottom: 16%;
+        color: #5b5b54;
+        font-size: 9px;
+        text-align: right;
+        text-transform: uppercase;
+      }
+
+      .cover--sync {
+        background: #dad8cf;
+      }
+
+      .sync-diagram {
+        position: absolute;
+        top: 22%;
+        right: 9%;
+        left: 9%;
+        display: grid;
+        grid-template-columns: 1fr 0.45fr 1fr;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .sync-node {
+        min-height: 132px;
+        padding: 16px;
+        border: 1px solid #55554f;
+        background: #eeece4;
+      }
+
+      .sync-node span,
+      .sync-node small {
+        display: block;
+        color: #66665e;
+        font: 9px var(--mono);
+        text-transform: uppercase;
+      }
+
+      .sync-node strong {
+        display: block;
+        margin: 12px 0 18px;
+        letter-spacing: -0.06em;
+        font-size: 38px;
+        font-weight: 500;
+      }
+
+      .sync-node small {
+        color: var(--accent);
+      }
+
+      .sync-line {
+        position: relative;
+        height: 1px;
+        background: #55554f;
+      }
+
+      .sync-line::after {
+        position: absolute;
+        top: -4px;
+        right: 0;
+        width: 8px;
+        height: 8px;
+        border-top: 1px solid #55554f;
+        border-right: 1px solid #55554f;
+        content: "";
+        transform: rotate(45deg);
+      }
+
+      .sync-line span {
+        position: absolute;
+        right: 50%;
+        bottom: 14px;
+        width: max-content;
+        color: #66665e;
+        font: 9px var(--mono);
+        text-transform: uppercase;
+        transform: translateX(50%);
+      }
+
+      .cover--sync .cover__annotation {
+        right: auto;
+        bottom: 22%;
+        left: 9%;
+        text-align: left;
+      }
+
+      .cover figcaption {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 13px 3px 0;
+      }
+
+      .cover figcaption span {
+        letter-spacing: -0.035em;
+        font-size: 15px;
+      }
+
+      .cover figcaption small {
+        color: var(--muted);
+        font: 9px/1.5 var(--mono);
+        text-align: right;
+        text-transform: uppercase;
+      }
+
+      .sync-section {
+        padding-bottom: 96px;
+      }
+
+      .sync-board {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+        gap: 24px;
+        border-top: 1px solid var(--line);
+      }
+
+      .sync-column {
+        padding: 22px 0 0;
+      }
+
+      .sync-column + .sync-column {
+        padding-left: 24px;
+        border-left: 1px solid var(--line);
+      }
+
+      .sync-column p {
+        max-width: 620px;
+        margin-top: 18px;
+        letter-spacing: -0.03em;
+        font-size: clamp(22px, 2.8vw, 42px);
+        line-height: 1.05;
+      }
+
+      .sync-column p small {
+        color: var(--muted);
+        font: 12px/1.55 var(--mono);
+        letter-spacing: 0;
+      }
+
+      .site-footer {
+        position: relative;
+        overflow: hidden;
+        padding-top: 28px;
+        padding-bottom: 120px;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer__grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 0.65fr;
+        gap: 60px;
+        max-width: 980px;
+      }
+
+      .footer__copy p {
+        max-width: 600px;
+        margin-top: 16px;
+        letter-spacing: -0.04em;
+        font-size: clamp(20px, 2vw, 30px);
+        line-height: 1.14;
+      }
+
+      .footer__links {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+
+      .footer__links a {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--line);
+        font-size: 15px;
+      }
+
+      .footer__links a:hover {
+        color: var(--accent);
+      }
+
+      .footer-word {
+        position: relative;
+        z-index: 0;
+        margin-top: 80px;
+        color: #090909;
+        font-size: clamp(116px, 22vw, 360px);
+        font-weight: 800;
+        letter-spacing: -0.12em;
+        line-height: 0.67;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .floating-dock {
+        position: fixed;
+        z-index: 10;
+        right: 50%;
+        bottom: 16px;
+        width: min(520px, calc(100vw - 32px));
+        color: #1b1b1a;
+        background: #f2f0e9;
+        border: 1px solid #bdbbb2;
+        font-size: 10px;
+        transform: translateX(50%);
+      }
+
+      .floating-dock__top,
+      .floating-dock__bottom {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 9px 11px;
+      }
+
+      .floating-dock__top {
+        border-bottom: 1px solid #c7c5bc;
+      }
+
+      .floating-dock__top a:hover,
+      .floating-dock__bottom a:hover {
+        color: var(--accent);
+      }
+
+      .floating-dock__bottom {
+        justify-content: space-between;
+      }
+
+      .dock-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        font-weight: 700;
+      }
+
+      .dock-logo img {
+        width: 58px;
+        height: 30px;
+        border: 1px solid #bdbbb2;
+        object-fit: cover;
+        object-position: 50% 70%;
+      }
+
+      .dock-links {
+        display: flex;
+        gap: 14px;
+      }
+
+      .dock-links a {
+        white-space: nowrap;
+      }
+
+      @media (min-width: 1600px) {
+        .site-header,
+        .hero,
+        .section,
+        .site-footer {
+          padding-right: max(var(--gutter), calc((100vw - 1500px) / 2));
+          padding-left: max(var(--gutter), calc((100vw - 1500px) / 2));
+        }
+
+        .site-header {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .hero__composition,
+        .sync-board,
+        .footer__grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero__composition {
+          gap: 48px;
+          min-height: 0;
+        }
+
+        .hero__copy {
+          max-width: 520px;
+        }
+
+        .covers {
+          grid-template-columns: 1fr;
+        }
+
+        .cover__frame {
+          height: 500px;
+        }
+
+        .sync-column + .sync-column {
+          padding-left: 0;
+          border-top: 1px solid var(--line);
+          border-left: 0;
+        }
+
+        .footer-word {
+          margin-top: 70px;
+          font-size: 28vw;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .site-header {
+          min-height: 76px;
+        }
+
+        .site-signature small,
+        .site-header .status {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 24px;
+          padding-bottom: 60px;
+        }
+
+        .hero__meta,
+        .section__meta {
+          flex-wrap: wrap;
+        }
+
+        .hero__composition {
+          padding-top: 54px;
+        }
+
+        .hero h1 {
+          font-size: clamp(48px, 13vw, 74px);
+          line-height: 0.98;
+        }
+
+        .hero__copy p {
+          font-size: 23px;
+        }
+
+        .section {
+          padding-top: 58px;
+          padding-bottom: 64px;
+        }
+
+        .section__intro {
+          display: block;
+        }
+
+        .section__intro > .label {
+          display: block;
+          margin-bottom: 28px;
+        }
+
+        .cover__frame {
+          height: 410px;
+        }
+
+        .sync-diagram {
+          top: 27%;
+          grid-template-columns: 1fr;
+          gap: 42px;
+        }
+
+        .sync-line {
+          position: absolute;
+          top: 50%;
+          right: 50%;
+          width: 1px;
+          height: 42px;
+          transform: translateX(50%);
+        }
+
+        .sync-line::after {
+          top: auto;
+          right: -4px;
+          bottom: 0;
+          transform: rotate(135deg);
+        }
+
+        .sync-line span {
+          top: 14px;
+          right: 13px;
+          bottom: auto;
+          transform: none;
+        }
+
+        .sync-node {
+          min-height: 96px;
+        }
+
+        .sync-node strong {
+          margin: 8px 0;
+          font-size: 30px;
+        }
+
+        .footer__grid {
+          gap: 38px;
+        }
+
+        .footer-word {
+          margin-top: 76px;
+          font-size: 31vw;
+        }
+
+        .floating-dock__top {
+          justify-content: space-between;
+          gap: 8px;
+        }
+
+        .floating-dock__bottom {
+          align-items: flex-start;
+        }
+
+        .dock-links {
+          display: grid;
+          gap: 4px;
+          text-align: right;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__composition">
+          <h1 id="hero-title">
+            Original ninja<br />
+            since 2013,<br />
+            no Figma<br />
+            required
+          </h1>
+
+          <aside class="hero__copy" aria-label="Hero introduction">
+            <p>
+              hey Misha. product design done directly in React. one practical idea for keeping a site and its LLM context in sync. no Figma was harmed.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="threads" aria-label="Two visual covers">
+        <div class="covers">
+          <figure class="cover">
+            <div class="cover__frame cover--gonzik">
+              <div class="cover__media">
+                <img src="../public/gonzik.jpg" alt="GONZIK Fotodesign mark" />
+              </div>
+              <div class="cover__handoff" aria-label="GONZIK to KABAGO">
+                <strong>GONZIK</strong>
+                <span>→</span>
+                <strong>KABAGO</strong>
+              </div>
+            </div>
+            <figcaption>
+              <span>GONZIK → KABAGO</span>
+            </figcaption>
+          </figure>
+
+          <figure class="cover">
+            <div class="cover__frame cover--sync">
+              <div class="sync-diagram" aria-label="Site and LLM connected to one source">
+                <div class="sync-node">
+                  <span>surface</span>
+                  <strong>site</strong>
+                  <small>03 Sep / homepage</small>
+                </div>
+                <div class="sync-line"><span>one source</span></div>
+                <div class="sync-node">
+                  <span>context</span>
+                  <strong>LLM</strong>
+                  <small>11 Aug / llms.txt</small>
+                </div>
+              </div>
+            </div>
+            <figcaption>
+              <span>site ↔ LLM</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section sync-section" id="sync" aria-labelledby="sync-title">
+        <div class="section__intro">
+          <span class="label">03 / LLM context</span>
+          <div>
+            <h2 id="sync-title">when the site moves,<br />does the context follow<span class="accent">?</span></h2>
+          </div>
+        </div>
+
+        <div class="sync-board">
+          <div class="sync-column">
+            <span class="label">observation</span>
+            <p>
+              A 3 Sep event appeared on the homepage. <code>llms.txt</code> still read “Last updated: 2026-08-11.”
+            </p>
+          </div>
+          <div class="sync-column">
+            <span class="label">proposal</span>
+            <p>
+              One source for the site and agent context, with a release check for dates and links.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer__grid">
+        <div class="footer__copy">
+          <p>
+            let’s make the next screen clearer.
+          </p>
+        </div>
+        <div class="footer__links">
+          <a href="https://github.com/basova-gonzalez" target="_blank" rel="noreferrer">
+            <span>GitHub</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://t.me/basova_gonzalez" target="_blank" rel="noreferrer">
+            <span>Telegram</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-word" aria-hidden="true">
+        KABAGO<span class="accent">.</span>
+      </div>
+    </footer>
+
+    <nav class="floating-dock" aria-label="Floating navigation">
+      <div class="floating-dock__top">
+        <a href="#main">top</a>
+        <a href="#threads">visual</a>
+        <a href="#sync">context</a>
+      </div>
+      <div class="floating-dock__bottom">
+        <a class="dock-logo" href="#main" aria-label="GONZIK mark, back to top">
+          <img src="../public/gonzik.jpg" alt="GONZIK" />
+        </a>
+        <div class="dock-links">
+          <a href="https://github.com/basova-gonzalez" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://t.me/basova_gonzalez" target="_blank" rel="noreferrer">Telegram ↗</a>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
