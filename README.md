@@ -22,7 +22,7 @@ npm run dev
 
 ### Who
 
-Katya Basova-Gonzalez. Design ninja, no layers.<br>
+Ekaterina Básova González. Design ninja, no layers.<br>
 Photography, editorial, design, now AI and code.<br>
 Was a ninja before the dojo existed.
 
